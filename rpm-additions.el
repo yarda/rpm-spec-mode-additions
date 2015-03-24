@@ -118,3 +118,5 @@ The resulting %patch line will look like this:
 	      (newline)
 	      (insert "%patch" new-patch " -p1 -b ." (get-patch-backup-name patch-name)))
 	  (goto-char p))))))
+
+(provide 'rpm-additions)
