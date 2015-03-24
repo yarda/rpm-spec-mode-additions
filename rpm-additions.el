@@ -5,14 +5,14 @@
   "Return the current %{name}."
   (save-excursion
     (beginning-of-buffer)
-    (re-search-forward "^Name:[ \\t]+\\(.+\\)$" nil nil)
+    (re-search-forward "^Name:[ \t]+\\(.+\\)$" nil nil)
     (match-string 1)))
 
 (defun rpm-get-version ()
   "Return the current %{version}."
   (save-excursion
     (beginning-of-buffer)
-    (re-search-forward "^Version:[ \\t]+\\(.+\\)$" nil nil)
+    (re-search-forward "^Version:[ \t]+\\(.+\\)$" nil nil)
     (match-string 1)))
 
 ; main
@@ -75,7 +75,7 @@ The resulting %patch line will look like this:
   (interactive "fPatch: ")
   (end-of-buffer)
   ;; ^Patch
-  (re-search-backward "^Patch\\([0-9]+\\):\\([ \\t]*\\)" nil nil)
+  (re-search-backward "^Patch\\([0-9]+\\):\\([ \t]*\\)" nil nil)
   (let ((new-patch (increase-patch-number (match-string 1)))
 	(patch-name (file-name-nondirectory patch-file)))
     (end-of-line)
@@ -103,7 +103,7 @@ The resulting %patch line will look like this:
 			  'file-name-history)))
     (end-of-buffer)
     ;; ^Patch
-    (re-search-backward "^Patch\\([0-9]+\\):\\([ \\t]*\\)" nil nil)
+    (re-search-backward "^Patch\\([0-9]+\\):\\([ \t]*\\)" nil nil)
     (let ((new-patch (increase-patch-number (match-string 1)))
 	  (patch-name (file-name-nondirectory patch-file)))
       (end-of-line)
